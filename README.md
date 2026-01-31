@@ -1354,6 +1354,7 @@ confirm
 *****January February March April May June July August September October November December*****
 
 </details>
+<br/>
 
 ### Задание 12. Настройка SAMBA на HQ-SRV
 <details>
@@ -1412,6 +1413,7 @@ systemctl restart smb
 systemctl status smb
 ```
 </details>
+<br/>
 
 ### Задание 13. Установка LAMP на HQ-SRV
 <details>
@@ -1432,6 +1434,7 @@ systemctl enable --now httpd2
 systemctl status httpd2
 ```
 </details>
+<br/>
 
 ### Задание 14. GIT на HQ-SRV
 <details>
@@ -1452,5 +1455,34 @@ git clone https://github.com/
 ***Перемещаем все файлы из папки kval в папку html***
 ```
 mv /var/www/html/kval/* /var/www/html/
+```
+</details>
+<br/>
+
+### Задание 15. установка YANDEX-BROWSER на HQ-CLI
+<details>
+<summary>Решение</summary>
+<br/>
+  
+***На HQ-CLI заходим в браузер и в поисковой строке пишем:***
+```
+yandex browser rpm
+```
+***В первом сайте скачиваем файл:***
+```
+yandex-browser-corporate
+```
+***Далее в терминале HQ-CLI выполняем команды:***
+```
+apt-get update
+apt-get install -y binutils jq  squashfs-tools
+```
+***Затем переходим в папку загрузки***
+```
+cd /home/user/Загрузки
+```
+***Запускаем установку браузера***
+```
+rpm -i yandex-browser нажимаем на клавишу TAB, а потом клавишу ENTER
 ```
 </details>
