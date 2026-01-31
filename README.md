@@ -1450,11 +1450,11 @@ cd /var/www/html
 ```
 ***Клонируем с удалённого githab сайт.***
 ```
-git clone https://github.com/
+git clone https://github.com/champsysadm/site.git
 ```
-***Перемещаем все файлы из папки kval в папку html***
+***Перемещаем все файлы из папки site в папку html***
 ```
-mv /var/www/html/kval/* /var/www/html/
+mv /var/www/html/site/*  /var/www/html/
 ```
 </details>
 <br/>
