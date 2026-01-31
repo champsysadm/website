@@ -1354,3 +1354,103 @@ confirm
 *****January February March April May June July August September October November December*****
 
 </details>
+
+### Задание 12. Настройка SAMBA на HQ-SRV
+<details>
+<summary>Решение</summary>
+  
+***Скачивание пакета samba***
+```
+apt-get install -y samba
+```
+***Создаём директорию для общей папки***
+```
+mkdir /srv/share
+```
+***Даём этой директории полные права***
+```
+chmod 777 /srv/share
+```
+***Заходим в файл smb.conf***
+```
+nano /etc/samba/smb.conf
+```
+***В самом конце файла вписываем следующие строчки***
+```
+[share]
+    comment = Public Folder
+    path = /srv/share
+    public = yes
+    writable = yes
+    read only = no
+    guest ok = yes
+    create mask = 0777
+    directory mask = 0777
+    force create mode = 0777
+    force directory mode = 0777
+```
+
+> **`[share]`** - название папки (это название будут видеть пользователи)<br/>
+> **`comment`** - комментарий.<br/>
+> **`path`** - путь, где будет расположена общая папка.<br/>
+> **`public`** - для общего доступа. Установите в yes, если хотите, чтобы все могли работать с ресурсом.<br/>
+> **`writable`** - этот параметр отвечает за разрешение записи в сетевую папку.<br/>
+> **`read only`** - только для чтения. Установите no, если у пользователей должна быть возможность создавать папки и файлы.<br/>
+> **`guest ok`** - разрешает доступ к папке гостевой учетной записи.<br/>
+> **`create mask, directory mask, force create mode, force directory mode`** — при создании новой папки или файла назначаются указанные права. В нашем примере права будут полные.<br/>
+
+***Добавляем samba в автозагрузку***
+```
+systemctl enable --now smb
+```
+***Перезапускаем samba***
+```
+systemctl restart smb
+```
+***Проверяем работает ли samba***
+```
+systemctl status smb
+```
+</details>
+
+### Задание 13. Установка LAMP на HQ-SRV
+<details>
+<summary>Решение</summary>
+
+**LAMP (Linux Apache MySql Php) - нужен для развёртывания веб-сервера и веб-сайта.**
+
+***Установка пакета lamp***
+```
+apt-get install -y lamp-server
+```
+***Добавляем службу httpd2 (отвечает за веб-сервер) в автозагрузку***
+```
+systemctl enable --now httpd2
+```
+***Проверяем работу веб-сервера***
+```
+systemctl status httpd2
+```
+</details>
+
+### Задание 14. GIT на HQ-SRV
+<details>
+<summary>Решение</summary>
+
+***Скачиваем git - систему контроля версий. С помощью него мы будем скачивать с githab сайт и в дальнейшем распологать его на нашем веб-сервере.***
+```
+apt-get install -y git
+```
+***Переходим в папку, где должен в будущем находится сайт.***
+```
+cd /var/www/html
+```
+***Клонируем с удалённого githab сайт.***
+```
+git clone https://github.com/
+```
+***Перемещаем все файлы из папки kval в папку html***
+```
+mv /var/www/html/kval/* /var/www/html/
+```
+</details>
