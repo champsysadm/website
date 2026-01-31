@@ -1415,7 +1415,7 @@ systemctl status smb
 </details>
 <br/>
 
-### Задание 13. Установка LAMP на HQ-SRV
+### Задание 13. Установка ВЕБ-СЕРВЕРА на HQ-SRV
 <details>
 <summary>Решение</summary>
 
