@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чукотский многопрофильный колледж - Чемпионат "Профессионалы"</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">s -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a3c8b 0%, #2a5cbd 100%);
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ffcc00, #ff9900, #ff6600);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+            color: #ffcc00;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23f0f2f5" width="100" height="100"/><path fill="%23e1e5ea" d="M0,0 L100,0 L100,100 Z"/></svg>') no-repeat center center;
+            background-size: cover;
+        }
+        
+        .championship-card {
+            background-color: white;
+            border-radius: 16px;
+            padding: 50px 40px;
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .championship-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .championship-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, #1a3c8b, #2a5cbd, #4a7de0);
+        }
+        
+        .championship-icon {
+            font-size: 4rem;
+            color: #2a5cbd;
+            margin-bottom: 25px;
+        }
+        
+        h2 {
+            font-size: 2.8rem;
+            color: #1a3c8b;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .championship-details {
+            font-size: 1.5rem;
+            color: #2a5cbd;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .year-badge {
+            display: inline-block;
+            background: linear-gradient(to right, #ffcc00, #ff9900);
+            color: #1a3c8b;
+            padding: 8px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 2rem;
+            margin-top: 15px;
+            box-shadow: 0 4px 10px rgba(255, 153, 0, 0.3);
+        }
+        
+        .description {
+            font-size: 1.2rem;
+            color: #555;
+            margin-top: 30px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        footer {
+            background-color: #1a3c8b;
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .contact-info {
+            text-align: right;
+        }
+        
+        .contact-info p {
+            margin-bottom: 5px;
+        }
+        
+        .snowflake {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.2rem;
+            z-index: 1;
+            animation: fall linear infinite;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .championship-details {
+                font-size: 1.2rem;
+            }
+            
+            .championship-card {
+                padding: 30px 20px;
+            }
+            
+            .year-badge {
+                font-size: 1.5rem;
+                padding: 6px 20px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .contact-info {
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            .championship-icon {
+                font-size: 3rem;
+            }
+            
+            .year-badge {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="snowflake" style="top: 10%; left: 5%; animation-duration: 15s;">❄</div>
+        <div class="snowflake" style="top: 5%; left: 15%; animation-duration: 12s;">❄</div>
+        <div class="snowflake" style="top: 15%; left: 85%; animation-duration: 18s;">❄</div>
+        <div class="snowflake" style="top: 8%; left: 75%; animation-duration: 14s;">❄</div>
+        
+        <div class="header-content">
+            <div class="logo-container">
+                <i class="fas fa-graduation-cap logo-icon"></i>
+                <h1>Чукотский многопрофильный колледж</h1>
+            </div>
+            <p class="subtitle">Государственное профессиональное образовательное учреждение Чукотского автономного округа</p>
+        </div>
+    </header>
+    <main>
+        <div class="championship-card">
+            <i class="fas fa-network-wired championship-icon"></i>
+            <h2>Региональный чемпионат "Профессионалы"</h2>
+            <div class="championship-details">Сетевое и системное администрирование</div>
+            <div class="year-badge">2026</div>
+            
+            <p class="description">
+                Чемпионат направлен на повышение престижа рабочих профессий и развитие профессионального образования 
+                в соответствии с мировыми стандартами и передовыми технологиями. Участники продемонстрируют свои навыки 
+                в проектировании, настройке и обслуживании компьютерных сетей и систем.
+            </p>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                © Чукотский многопрофильный колледж, 2026
+            </div>
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> Чукотский автономный округ, г. Анадырь</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function createSnowflakes() {
+            const snowflakeContainer = document.querySelector('header');
+            const snowflakeCount = 8;
+            
+            for (let i = 0; i < snowflakeCount; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.innerHTML = '❄';
+                const left = Math.random() * 100;
+                const top = Math.random() * 30;
+                const duration = 10 + Math.random() * 10;
+                const size = 0.8 + Math.random() * 0.7;
+                
+                snowflake.style.left = `${left}%`;
+                snowflake.style.top = `${top}%`;
+                snowflake.style.fontSize = `${size}rem`;
+                snowflake.style.animationDuration = `${duration}s`;
+                snowflake.style.opacity = 0.5 + Math.random() * 0.3;
+                
+                snowflakeContainer.appendChild(snowflake);
+            }
+        }
+        document.addEventListener('DOMContentLoaded', createSnowflakes);
+        card.addEventListener('mouseleave', function() {
+           this.style.transform = 'translateY(0)';
+        });
+    </script>
+</body>
+</html>
