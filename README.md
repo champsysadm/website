@@ -1445,7 +1445,7 @@ systemctl status httpd2
 <details>
 <summary>Решение</summary>
 
-***Скачиваем git - систему контроля версий. С помощью него мы будем скачивать с githab сайт и в дальнейшем распологать его на нашем веб-сервере.***
+***На HQ-SRV скачиваем git - систему контроля версий. С помощью него мы будем клонировать с githab сайт и в дальнейшем распологать его на нашем веб-сервере.***
 ```
 apt-get install -y git
 ```
@@ -1462,9 +1462,8 @@ git clone https://github.com/champsysadm/site.git
 mv /var/www/html/site/*  /var/www/html/
 ```
 ***На HQ-CLI открываем браузер и вписываем ip-адрес hq-srv***
-```
-![image](@)
-```
+![image](https://github.com/champsysadm/website/blob/main/i.png)
+
 </details>
 <br/>
 
