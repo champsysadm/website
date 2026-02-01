@@ -1356,7 +1356,7 @@ confirm
 </details>
 <br/>
 
-### Задание 12. Настройка SAMBA на HQ-SRV
+### Задание 12. Настройка общей папки SAMBA на HQ-SRV
 <details>
 <summary>Решение</summary>
   
@@ -1412,6 +1412,7 @@ systemctl restart smb
 ```
 systemctl status smb
 ```
+***Идём на HQ-CLI, открываем "компьютер" и в адресной строке вбиваем:***
 </details>
 <br/>
 
