@@ -1461,6 +1461,10 @@ git clone https://github.com/champsysadm/site.git
 ```
 mv /var/www/html/site/*  /var/www/html/
 ```
+***На HQ-CLI открываем браузер и вписываем ip-адрес hq-srv***
+```
+![image](@)
+```
 </details>
 <br/>
 
