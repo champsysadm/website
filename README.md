@@ -1413,6 +1413,10 @@ systemctl restart smb
 systemctl status smb
 ```
 ***Идём на HQ-CLI, открываем "компьютер" и в адресной строке вбиваем:***
+```
+smb://192.168.0.2    (где 192.168.0.2 - IP HQ-SRV)
+```
+![image](https://github.com/champsysadm/website/blob/main/image.png)
 </details>
 <br/>
 
